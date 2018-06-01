@@ -51,9 +51,10 @@ plt.colorbar()
 plt.title('Interpolated eDNA concentration')
 plt.xlabel('Easting')
 plt.ylabel('Northing')
-plt.xlim(394600,395700)
-plt.ylim(4934400,4935500)
+#plt.xlim(394600,395700)
+#plt.ylim(4934400,4935500)
 plt.savefig('figure.png', dpi = 600)
+plt.show()
 
 
 

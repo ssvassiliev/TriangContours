@@ -94,6 +94,8 @@ try:
           count+=1
     print "<<< Reading excel table>>>\n...", os.path.basename(xlFile1)+",",\
       count,"concentration measurement points"
+    print "... xlim = [", int(min(xt)-10), int(max(xt)+10), "] span:" , int(max(xt)-min(xt))
+    print "... ylim = [", int(min(yt)-10), int(max(yt)+10), "] span:" , int(max(yt)-min(yt))
     print "... maximal concentration =", maxc
     print "... rescaled concentration =",zmult
 

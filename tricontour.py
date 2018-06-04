@@ -48,13 +48,18 @@ plt.rcParams['axes.facecolor'] = 'darkolivegreen'
 plt.gca().set_aspect('equal')
 plt.tricontourf(x, y, triangles, z, 100, cmap=cm.CMRmap)
 plt.colorbar()
+plt.minorticks_on()
+plt.grid(c='grey', ls='-', alpha=0.3)
 plt.title('Interpolated eDNA concentration')
 plt.xlabel('Easting')
 plt.ylabel('Northing')
 # Set x,y limits or comment out to draw the whole map 
-plt.xlim(394600,395700) 
-plt.ylim(4934400,4935500)
-plt.savefig('figure.png', dpi = 600)
+#plt.xlim(394800,395800) 
+#plt.ylim(4934500,4935500)
+plt.xlim(391320, 395935)
+plt.ylim(4931861, 4936171)
+plt.tight_layout()
+plt.savefig('eDNA.png', dpi = 600)
 # Interactive plot
 plt.show()
 

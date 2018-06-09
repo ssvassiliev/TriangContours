@@ -1,5 +1,5 @@
 # eDNAmap
-Interpolate eDNA concentration measurements.
+Interpolate eDNA concentration measurements.<br><br>
 ![Interpolated eDNA map.](Fig_readme.png)
 ## To use the code:
 Install python 2.x<br>

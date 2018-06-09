@@ -1,5 +1,6 @@
 # eDNAmap
 Interpolate eDNA concentration measurements.
+![Interpolated eDNA map.](Fig_readme.png)
 ## To use the code:
 Install python 2.x<br>
 Install dependencies: pip install progressbar pyproj scipy numpy pandas stl pyshp fiona matplotlib

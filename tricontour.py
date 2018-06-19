@@ -51,7 +51,7 @@ n1 = len(triangles)
 print "... Number of triangles:", n1
 
 print "<<< Reading vertices b >>>"
-# read vertices
+# read vertices of the lake model
 xb = []; yb = []; zb = []
 try:
     with open(verticesFile2) as csvDataFile:
@@ -67,7 +67,7 @@ n2 = len(x)
 print "... Number of vertices: b", n2
 
 print "<<< Reading triangles b>>>"
-# read triangles
+# read triangles of the lake model
 triangles_b = []
 try:
     with open(facesFile2) as csvDataFile:

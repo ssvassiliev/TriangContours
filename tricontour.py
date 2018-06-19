@@ -3,7 +3,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.tri as tri
 from matplotlib import cm
-import csv, math, numpy, sys, os, pandas
+import csv, os, pandas
 from pyproj import Proj, transform
 import matplotlib.colors
 
@@ -13,11 +13,11 @@ verticesFile = WorkDir+'Opinicon/Output/vertices.csv'
 facesFile = WorkDir+'Opinicon/Output/faces.csv'
 verticesFile2 = WorkDir+'Opinicon/Output/vertices_b.csv'
 facesFile2 = WorkDir+'Opinicon/Output/faces_b.csv'
-xlFile1= WorkDir+"Opinicon/Data/2017-2018.xlsx"
+xlFile1 = WorkDir+"Opinicon/Data/2017-2018.xlsx"
 
 print "<<< Reading vertices >>>"
 # read vertices
-x=[]; y=[]; z=[]
+x = []; y = []; z = []
 try:
   with open(verticesFile) as csvDataFile:
     csvReader = csv.reader(csvDataFile)
@@ -28,64 +28,64 @@ try:
 except IOError:
   print 'Error: file',file,'not found'
   raise SystemExit
-n1=len(x)
+n1 = len(x)
 print "... Number of vertices:", n1
-orx=min(x); ory=min(y)
+orx = min(x); ory = min(y)
 print "... Origin:", orx, ory
 
 for i in range(n1):
- x[i] -= orx; y[i] -= ory;
+ x[i] -= orx; y[i] -= ory
 
 print "<<< Reading triangles >>>"
 # read triangles
-triangles=[]
+triangles = []
 try:
   with open(facesFile) as csvDataFile:
     csvReader = csv.reader(csvDataFile)
     for row in csvReader:
-        triangles.append([int(row[0]),int(row[1]),int(row[2])])
+        triangles.append([int(row[0]), int(row[1]), int(row[2])])
 except IOError:
-  print 'Error: file',file,'not found'
+  print 'Error: file', file, 'not found'
   raise SystemExit
-n1=len(triangles)
+n1 = len(triangles)
 print "... Number of triangles:", n1
 
 print "<<< Reading vertices b >>>"
 # read vertices
-xb=[]; yb=[]; zb=[]
+xb = []; yb = []; zb = []
 try:
-  with open(verticesFile2) as csvDataFile:
-    csvReader = csv.reader(csvDataFile)
-    for row in csvReader:
-      xb.append(float(row[0])-orx)
-      yb.append(float(row[1])-ory)
-      zb.append(-1*float(row[2]))
+    with open(verticesFile2) as csvDataFile:
+      csvReader = csv.reader(csvDataFile)
+      for row in csvReader:
+          xb.append(float(row[0])-orx)
+          yb.append(float(row[1])-ory)
+          zb.append(-1*float(row[2]))
 except IOError:
-  print 'Error: file',file,'not found'
-  raise SystemExit
-n2=len(x)
+    print 'Error: file', file, 'not found'
+    raise SystemExit
+n2 = len(x)
 print "... Number of vertices: b", n2
 
 print "<<< Reading triangles b>>>"
 # read triangles
-triangles_b=[]
+triangles_b = []
 try:
-  with open(facesFile2) as csvDataFile:
-    csvReader = csv.reader(csvDataFile)
-    for row in csvReader:
-        triangles_b.append([int(row[0]), int(row[1]), int(row[2])])
+    with open(facesFile2) as csvDataFile:
+        csvReader = csv.reader(csvDataFile)
+        for row in csvReader:
+            triangles_b.append([int(row[0]), int(row[1]), int(row[2])])
 except IOError:
-  print 'Error: file', file, 'not found'
-  raise SystemExit
+    print 'Error: file', file, 'not found'
+    raise SystemExit
 n2 = len(triangles_b)
 print "... Number of triangles b:", n2
 
 
-#--------------------------------------------------------
+# --------------------------------------------------------
 # << Read concentration measurements from excel file >>
-#--------------------------------------------------------
+# --------------------------------------------------------
 # Projections:
-wgs84 = Proj('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs') ##4326
+wgs84 = Proj('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs')  # 4326
 epsg26918 = Proj(init='epsg:26918')
 
 try:
